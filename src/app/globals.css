@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --solana-purple: #9945ff;
+  --solana-green: #14f195;
+  --dashboard-bg: #0d0d12;
+  --dashboard-card: #16161d;
+  --dashboard-border: #2a2a35;
+}
+
+body {
+  @apply bg-dashboard-bg text-zinc-100 antialiased;
+}
+
+/* Subtle gradient accent for hero / headers */
+.gradient-solana {
+  background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+}
