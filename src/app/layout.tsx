@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
+import { AppWalletProvider } from "@/components/wallet-provider";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -22,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${spaceGrotesk.variable} font-sans min-h-screen`}>
-        <Header />
-        <main className="container mx-auto px-4 py-8">{children}</main>
+        <AppWalletProvider>
+          <Header />
+          <main className="container mx-auto px-4 py-8">{children}</main>
+        </AppWalletProvider>
       </body>
     </html>
   );

@@ -18,3 +18,74 @@ body {
 .gradient-solana {
   background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
 }
+
+/* Wallet adapter – match dashboard dark theme and Solana purple/green */
+.wallet-button-wrapper .wallet-adapter-button {
+  background: transparent !important;
+  border: 1px solid var(--dashboard-border) !important;
+  border-radius: 0.5rem !important;
+  color: #f4f4f5 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  height: 2.25rem !important;
+  padding: 0 1rem !important;
+  transition: border-color 0.2s, color 0.2s, background 0.2s !important;
+}
+
+.wallet-button-wrapper .wallet-adapter-button:hover,
+.wallet-button-wrapper .wallet-adapter-button[aria-expanded="true"] {
+  background: var(--dashboard-card) !important;
+  border-color: var(--solana-green) !important;
+  color: #14f195 !important;
+}
+
+.wallet-button-wrapper .wallet-adapter-button-trigger {
+  background: transparent !important;
+  border-radius: 0.5rem !important;
+}
+
+.wallet-adapter-dropdown {
+  background: var(--dashboard-card) !important;
+  border: 1px solid var(--dashboard-border) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.wallet-adapter-dropdown-list {
+  background: var(--dashboard-card) !important;
+  padding: 0.25rem !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+  border-radius: 0.375rem !important;
+  color: #f4f4f5 !important;
+}
+
+.wallet-adapter-dropdown-list-item:hover {
+  background: rgba(153, 69, 255, 0.15) !important;
+  color: #14f195 !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.wallet-adapter-modal {
+  background: var(--dashboard-card) !important;
+  border: 1px solid var(--dashboard-border) !important;
+  border-radius: 0.75rem !important;
+}
+
+.wallet-adapter-modal-title {
+  color: #f4f4f5 !important;
+}
+
+.wallet-adapter-modal-list li button {
+  color: #f4f4f5 !important;
+  border-radius: 0.5rem !important;
+}
+
+.wallet-adapter-modal-list li button:hover {
+  background: rgba(153, 69, 255, 0.2) !important;
+  color: #14f195 !important;
+}

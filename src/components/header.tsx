@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Wallet } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export function Header() {
   return (
@@ -23,10 +22,9 @@ export function Header() {
           >
             Dashboard
           </Link>
-          <Button variant="outline" size="sm" className="gap-2">
-            <Wallet className="h-4 w-4" />
-            Connect Wallet
-          </Button>
+          <div className="wallet-button-wrapper">
+            <WalletMultiButton />
+          </div>
         </nav>
       </div>
     </header>
