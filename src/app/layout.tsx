@@ -21,12 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${spaceGrotesk.variable} font-sans min-h-screen`}>
-        <AppWalletProvider>
-          <Header />
-          <main className="container mx-auto px-4 py-8">{children}</main>
-        </AppWalletProvider>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${spaceGrotesk.variable} font-sans min-h-screen`} suppressHydrationWarning>
+        <div suppressHydrationWarning>
+          <AppWalletProvider>
+            <Header />
+            <main className="container mx-auto px-4 py-8">{children}</main>
+          </AppWalletProvider>
+        </div>
       </body>
     </html>
   );

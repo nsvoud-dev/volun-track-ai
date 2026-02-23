@@ -1,3 +1,1 @@
-// VolunTrack AI – custom hooks
-// e.g. useWallet, useAgentReport, useTransactions
-export {};
+export { useIsMounted } from "./use-is-mounted";

@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useIsMounted } from "@/hooks";
 
 export function Header() {
+  const mounted = useIsMounted();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-dashboard-border bg-dashboard-bg/95 backdrop-blur supports-[backdrop-filter]:bg-dashboard-bg/80">
       <div className="container flex h-14 items-center justify-between px-4">
@@ -22,9 +25,11 @@ export function Header() {
           >
             Dashboard
           </Link>
-          <div className="wallet-button-wrapper">
-            <WalletMultiButton />
-          </div>
+          {mounted && (
+            <div className="wallet-button-wrapper">
+              <WalletMultiButton />
+            </div>
+          )}
         </nav>
       </div>
     </header>

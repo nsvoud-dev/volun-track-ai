@@ -76,10 +76,10 @@ src/
    npm install
    ```
 
-2. **Environment variables** (create `.env.local` when you integrate APIs)
+2. **Environment variables** (copy `.env.example` to `.env.local`)
 
-   - `NEXT_PUBLIC_SOLANA_RPC_URL` – Solana RPC endpoint
-   - `GEMINI_API_KEY` – Google AI Studio key for report generation
+   - `NEXT_PUBLIC_SOLANA_RPC_URL` – (optional) Solana RPC endpoint; defaults to Devnet
+   - `NEXT_PUBLIC_GEMINI_API_KEY` – Google AI Studio key for AI report generation (Ukrainian summaries)
 
 3. **Run development server**
 
@@ -89,17 +89,18 @@ src/
 
    Open [http://localhost:3000](http://localhost:3000) to view the Donor Transparency Dashboard.
 
-4. **Wallet connection** – The header includes a “Connect Wallet” button (UI only for now). Wiring to Phantom/Solflare and passing the public key into `SolanaAgent` is the next step.
+4. **Wallet connection** – Connect via Phantom, Solflare, or any Wallet Standard–compatible wallet. The dashboard shows real SOL balance and supports “Generate Report” for AI summaries in Ukrainian.
+
+5. **Mock mode** – If the connected wallet has no transactions (or no Gemini API key), the AI report still returns a short Ukrainian message so grant judges and demos always have something to show.
 
 ---
 
-## SolanaAgent API (placeholders)
+## SolanaAgent API
 
-- **`monitorTransactions()`** – Returns a list of transaction summaries for the configured wallet.
-- **`executeAutoSwap(inputMint, amount, slippageBps?)`** – Swaps a given token to USDC via Jupiter.
-- **`generateAIReport(transactions, periodLabel?)`** – Returns a Gemini-generated summary and insights for the given transactions.
-
-Implementations are stubbed in `src/lib/agent.ts` and ready for RPC, Jupiter, and Gemini integration.
+- **`fetchRecentTransactions(limit?, publicKeyOverride?)`** – Returns the last N transaction summaries (signature, timestamp) for the wallet.
+- **`monitorTransactions()`** – Same as `fetchRecentTransactions(5)`.
+- **`executeAutoSwap(inputMint, amount, slippageBps?)`** – (TODO) Swaps a given token to USDC via Jupiter.
+- **`generateAIReport(transactions, periodLabel?, apiKey?)`** – Uses Gemini to produce a 2–3 sentence treasury summary in Ukrainian (“Volunteer’s Treasury Assistant”). Uses `NEXT_PUBLIC_GEMINI_API_KEY` if `apiKey` is omitted. Mock mode when there are no transactions.
 
 ---
 
